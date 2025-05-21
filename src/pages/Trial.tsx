@@ -19,72 +19,20 @@ const Trial = () => {
     <div className="min-h-screen bg-black text-white mt-16">
       <Navbar />
       <div className="container mx-auto px-4 py-16">
-        <Button
-          variant="ghost"
-          className="mb-8 text-white hover:bg-white/10"
-          onClick={() => navigate('/')}
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Home
-        </Button>
-
+        <Button variant="ghost" className="mb-8 text-white hover:bg-white/10" onClick={() => navigate('/')}> <ArrowLeft className="w-4 h-4 mr-2" /> Back to Home </Button>
         <div className="max-w-2xl mx-auto">
           <h1 className="text-4xl font-bold mb-6">Start Your Free Trial</h1>
-          <p className="text-gray-300 mb-8">
-            Experience the premium fitness journey with our 7-day free trial. No commitment required.
-          </p>
-
+          <p className="text-gray-300 mb-8">Experience the premium fitness journey with our 7-day free trial. No commitment required.</p>
           <form className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">First Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30"
-                  placeholder="John"
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-300 mb-2">Last Name</label>
-                <input
-                  type="text"
-                  className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30"
-                  placeholder="Doe"
-                />
-              </div>
+              {["First Name", "Last Name"].map((l, i) => (
+                <div key={l}><label className="block text-sm font-medium text-gray-300 mb-2">{l}</label><input type="text" className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30" placeholder={i ? "Doe" : "John"} /></div>
+              ))}
             </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
-              <input
-                type="email"
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30"
-                placeholder="john@example.com"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label>
-              <input
-                type="tel"
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30"
-                placeholder="+1 (555) 000-0000"
-              />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-300 mb-2">Preferred Start Date</label>
-              <input
-                type="date"
-                className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30"
-              />
-            </div>
-
-            <Button
-              className="w-full bg-gradient-to-r from-white to-gray-400 hover:from-gray-200 hover:to-gray-500 text-black px-6 py-6 text-lg"
-            >
-              Start Your Free Trial
-            </Button>
+            <div><label className="block text-sm font-medium text-gray-300 mb-2">Email</label><input type="email" className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30" placeholder="john@example.com" /></div>
+            <div><label className="block text-sm font-medium text-gray-300 mb-2">Phone Number</label><input type="tel" className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30" placeholder="+1 (555) 000-0000" /></div>
+            <div><label className="block text-sm font-medium text-gray-300 mb-2">Preferred Start Date</label><input type="date" className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-white/30" /></div>
+            <Button className="w-full bg-gradient-to-r from-white to-gray-400 hover:from-gray-200 hover:to-gray-500 text-black px-6 py-6 text-lg">Start Your Free Trial</Button>
           </form>
         </div>
       </div>

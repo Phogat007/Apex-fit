@@ -159,38 +159,14 @@ const Schedule = () => {
     ? classes 
     : classes.filter(c => c.category === selectedCategory);
 
-  const nextDay = () => {
-    const newDate = new Date(selectedDate);
-    newDate.setDate(newDate.getDate() + 1);
-    setSelectedDate(newDate);
-  };
 
-  const prevDay = () => {
-    const newDate = new Date(selectedDate);
-    newDate.setDate(newDate.getDate() - 1);
-    setSelectedDate(newDate);
-  };
-
-  const formatDate = (date) => {
-    return date.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
-  };
-
-  const getShortWeekday = (date) => {
-    return date.toLocaleDateString('en-US', { weekday: 'short' });
-  };
-
-  const getDay = (date) => {
-    return date.getDate();
-  };
-
-  const isDateSelected = (date) => {
-    return date.toDateString() === selectedDate.toDateString();
-  };
-
-  const getCategoryIcon = (categoryName) => {
-    const category = categories.find(c => c.name === categoryName);
-    return category ? category.icon : Dumbbell;
-  };
+  const nextDay = () => setSelectedDate(new Date(selectedDate.getTime() + 864e5));
+  const prevDay = () => setSelectedDate(new Date(selectedDate.getTime() - 864e5));
+  const formatDate = d => d.toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' });
+  const getShortWeekday = d => d.toLocaleDateString('en-US', { weekday: 'short' });
+  const getDay = d => d.getDate();
+  const isDateSelected = d => d.toDateString() === selectedDate.toDateString();
+  const getCategoryIcon = n => (categories.find(c => c.name === n)?.icon || Dumbbell);
 
   return (
     <div className="min-h-screen bg-black text-white mt-8">
