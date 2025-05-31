@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Trial from "./pages/Trial";
 import Contact from "./pages/Contact";
 import Schedule from "./pages/Schedule";
+import ScrollToTop from "./components/scrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/trial" element={<Trial />} />
